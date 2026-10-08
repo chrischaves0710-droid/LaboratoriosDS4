@@ -1,3 +1,0 @@
-Colocá en esta carpeta un archivo MP3 llamado exactamente: fuego.mp3
-
-Quedaría: LabDS4-1/assets/fuego.mp3
