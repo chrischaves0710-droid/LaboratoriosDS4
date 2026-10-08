@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Rótulo interactivo de extintor para fuegos clase A." />
+  <title>LabDS4-1 | Extintor Clase A</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="pagina">
+    <section class="cartel" aria-labelledby="titulo-cartel">
+      <header class="cartel__encabezado">
+        <h1 id="titulo-cartel">EXTINTOR</h1>
+        <h2>ÚSELO ÚNICAMENTE EN FUEGO CLASE</h2>
+      </header>
+
+      <div class="tipo-fuego" aria-label="Fuego clase A">
+        <svg class="tipo-fuego__triangulo" viewBox="0 0 130 110" aria-hidden="true">
+          <path d="M65 8 L124 103 H6 Z" fill="none" stroke="#087038" stroke-width="11" />
+          <text x="65" y="85" text-anchor="middle" fill="#087038" font-size="70" font-weight="900" font-family="Arial, Helvetica, sans-serif">A</text>
+        </svg>
+
+        <!-- Solo esta zona activa la animación y el sonido al pasar el mouse. -->
+        <button id="zonaFuego" class="zona-fuego" type="button"
+                aria-label="Fuego: acercá el cursor para escuchar las llamas">
+          <svg class="fuego-svg" viewBox="0 0 160 130" role="img"
+               aria-label="Símbolo de madera, papeles y basura en llamas">
+            <rect x="2" y="2" width="156" height="126" rx="15" fill="#09295f" />
+
+            <!-- Llamas sobre el recipiente -->
+            <g class="llama llama--uno">
+              <path d="M35 44 C23 33 28 24 37 17 C34 29 48 31 42 44 Z" fill="#ffb13b" />
+              <path d="M35 43 C31 37 34 33 37 29 C36 36 42 38 39 43 Z" fill="#fff2a5" />
+            </g>
+            <g class="llama llama--dos">
+              <path d="M54 41 C43 31 48 21 58 12 C53 28 70 29 61 41 Z" fill="#ff6a26" />
+              <path d="M54 40 C51 35 55 29 58 26 C57 34 63 35 59 40 Z" fill="#ffd35d" />
+            </g>
+
+            <!-- Recipiente con residuos -->
+            <path d="M26 50 L81 50 L75 111 L33 111 Z" fill="#efe8d4" />
+            <ellipse cx="53.5" cy="49" rx="30" ry="8" fill="#f8f4e7" />
+            <path d="M29 42 Q34 33 45 36 L57 42" stroke="#a8a69c" stroke-width="2" fill="none" />
+
+            <!-- Llamas sobre madera y cartones -->
+            <g class="llama llama--tres">
+              <path d="M100 92 C77 74 89 58 102 49 C98 65 110 69 111 80 C116 67 125 60 121 45 C140 65 139 85 118 98 Z"
+                    fill="#ff6a26" />
+              <path d="M108 95 C96 86 103 75 111 68 C108 79 121 81 118 95 Z" fill="#ffd35d" />
+            </g>
+            <path d="M85 105 L134 115" stroke="#e9e1c9" stroke-width="7" stroke-linecap="round" />
+            <path d="M130 103 L92 117" stroke="#e9e1c9" stroke-width="7" stroke-linecap="round" />
+          </svg>
+        </button>
+      </div>
+
+      <section class="materiales" aria-labelledby="titulo-materiales">
+        <h3 id="titulo-materiales">SÓLIDOS COMBUSTIBLES</h3>
+        <p>madera, papel,<br />tela, basura<br />cartones</p>
+      </section>
+
+      <section class="instrucciones" aria-labelledby="titulo-metodo">
+        <h2 id="titulo-metodo">MÉTODO PARA UTILIZARLO</h2>
+        <ol>
+          <li>Sosténgalo en posición vertical.</li>
+          <li>Retire el seguro.</li>
+          <li>Oprima la palanca.</li>
+          <li>Dirija la descarga contra la base de la llama.</li>
+        </ol>
+      </section>
+
+      <div class="franjas" aria-hidden="true">
+        <span></span><span></span><span></span>
+      </div>
+    </section>
+
+    <aside class="controles" aria-label="Controles de sonido">
+      <p class="controles__titulo">Interacción con el fuego</p>
+      <p>Pasá el mouse sobre el ícono azul con las llamas para activar el efecto.</p>
+      <button id="botonSonido" class="boton-sonido" type="button" aria-pressed="false">
+        🔊 Activar sonido
+      </button>
+      <p id="estadoSonido" class="estado-sonido" role="status" aria-live="polite">
+        El sonido está desactivado. Activá el botón para escucharlo.
+      </p>
+    </aside>
+  </main>
+
+  <!-- Poné tu sonido aquí: LabDS4-1/assets/fuego.mp3 -->
+  <audio id="audioFuego" src="assets/fuego.mp3" preload="auto" loop></audio>
+</body>
+</html>
