@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explora las valoraciones de los episodios de tus series favoritas con datos de TVMaze.">
+  <title>TV Shows | Valoraciones por episodio</title>
+  <link rel="stylesheet" href="./index.css">
+  <script type="module" src="./index.js"></script>
+</head>
+<body>
+  <main class="container">
+    <header class="page-heading">
+      <div class="logo" aria-hidden="true">TV</div>
+      <div>
+        <p class="eyebrow">Laboratorio de JavaScript · Asincronía</p>
+        <h1>TV Shows</h1>
+        <p class="intro">Explorá las calificaciones de los episodios, ordenados por temporada.</p>
+      </div>
+    </header>
+
+    <form id="show-form" class="search-form" role="search">
+      <div class="field">
+        <label for="show-id">ID de la serie en TVMaze</label>
+        <input id="show-id" name="id" type="number" min="1" step="1" value="2993" required>
+      </div>
+      <button id="search-button" type="submit">Consultar serie</button>
+      <a class="search-link" href="https://api.tvmaze.com/search/shows?q=name" target="_blank" rel="noopener noreferrer">¿Cómo encontrar un ID?</a>
+    </form>
+
+    <p id="feedback" class="feedback" role="status" aria-live="polite" hidden></p>
+
+    <div id="results" hidden>
+      <header id="show-header" class="show-header"></header>
+
+      <section class="ratings-section" aria-labelledby="episodes-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Mapa de valoraciones</p>
+            <h2 id="episodes-title">Episodios por temporada</h2>
+          </div>
+          <p id="episode-count" class="episode-count"></p>
+        </div>
+
+        <div class="legend" aria-label="Leyenda de calificaciones">
+          <span>Calificación:</span>
+          <span class="legend-point rating-1">1–2</span>
+          <span class="legend-point rating-4">3–4</span>
+          <span class="legend-point rating-6">5–6</span>
+          <span class="legend-point rating-8">7–8</span>
+          <span class="legend-point rating-10">9–10</span>
+          <span class="legend-point rating-none">Sin nota</span>
+        </div>
+
+        <div id="episodes" class="episodes"></div>
+      </section>
+    </div>
+
+    <footer class="site-footer">
+      Datos proporcionados por <a href="https://www.tvmaze.com/" target="_blank" rel="noopener noreferrer">TVMaze</a>.
+      Uso educativo.
+    </footer>
+  </main>
+</body>
+</html>
